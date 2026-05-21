@@ -1,0 +1,64 @@
+/* Contenedor principal del Navbar */
+.navbar {
+  position: fixed;            /* 1. Lo fija a la pantalla para que no se mueva con el scroll */
+  top: 20px;                  /* 2. Lo separa un poco del borde superior (efecto flotante) */
+  left: 50%;                  /* 3. Mueve el inicio del Navbar al centro exacto de la pantalla */
+  transform: translateX(-50%);/* 4. Lo empuja hacia la izquierda un 50% de su PROPIO ancho, logrando el centrado perfecto */
+  z-index: 1000;              /* 5. Asegura que siempre quede por encima de las imágenes, textos y secciones */
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+                   
+  padding: 20px 40px;
+  background: rgba(10, 17, 26, 0.29); 
+  backdrop-filter: blur(10px);       
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); 
+  width: 60%;                 /* Se mantiene tu ancho */
+  box-sizing: border-box;
+  border-radius: 20px;        /* Tus bordes redondeados lucirán geniales flotando */
+}
+
+/* Lista de navegación */
+.navbar-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 85px;
+}
+
+/* Elementos de la lista / Enlaces */
+.navbar-item {
+  color: #ffffff; /* Color blanco para los no seleccionados */
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative; /* Necesario para posicionar la línea verde */
+  padding-bottom: 8px; /* Espacio entre el texto y la futura línea */
+  transition: color 0.3s ease;
+}
+
+/* Efecto Hover (opcional, para mejorar la experiencia) */
+.navbar-item:hover {
+  color: #ffa600; /* Un tono sutil al pasar el mouse antes de dar click */
+}
+
+/* ESTADO ACTIVO: 
+  Esta clase se aplicará solo al elemento seleccionado mediante React
+*/
+.navbar-item.active {
+  color: #2CC295; /* Color verde/turquesa del texto*/
+}
+
+/* La línea verde debajo del elemento activo */
+.navbar-item.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;          /* Ocupa todo el ancho del texto */
+  height: 4px;          /* Grosor de la línea */
+  background-color: #00524D; /* Color verde de la línea */
+  border-radius: 2px;   /* Bordes redondeados para la línea */
+  
+}

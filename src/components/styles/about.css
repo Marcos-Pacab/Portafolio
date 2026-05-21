@@ -1,0 +1,185 @@
+/* Contenedor general de la sección */
+.about-section {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+}
+
+/* --- GRID DE TARJETAS SUPERIORES --- */
+.about-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Tarjeta Base */
+.about-card {
+  /* #00524D con 24% de transparencia */
+  background: rgba(0, 82, 77, 0.24); 
+  border-radius: 28px;
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  animation: scrollRise linear both;
+  animation-timeline: view();
+  animation-range: entry 10% contain 35%;
+
+  border: 1px solid transparent;
+
+}
+
+.about-card:hover{
+    border-color: #2CC295;
+    filter: drop-shadow(0 0 12px rgba(44, 194, 149, 0.171)); 
+}
+
+/* Contenedor de Iconos */
+.about-icon-wrapper {
+  color: #ffffff;
+  font-size: 3rem; /* Tamaño del icono */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Títulos de las tarjetas */
+.about-card h3 {
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0 0 15px 0;
+}
+
+/* Líneas divisorias de las tarjetas */
+.about-divider {
+  width: 65%;
+  height: 5px;
+  background-color: #2CC295; /* Color de línea solicitado */
+  margin-bottom: 20px;
+}
+
+/* Textos internos de Educación e Idiomas */
+.about-card p {
+  color: #cccccc;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.school-name {
+  margin-bottom: 30px !important;
+}
+
+.years {
+  color: #888888 !important;
+}
+
+.language-item {
+  margin-bottom: 8px !important;
+}
+
+.language-item strong {
+  color: #ffffff;
+}
+
+/* Lista de Aptitudes */
+.aptitudes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.aptitudes-list li {
+  color: #cccccc;
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 15px;
+}
+
+/* Viñetas personalizadas (puntos del listado) */
+.aptitudes-list li::before {
+  content: "•";
+  color: #cccccc;
+  position: absolute;
+  left: 0;
+}
+
+
+/* --- CAJA INFERIOR: MI HISTORIA --- */
+.history-box {
+  /* #00524D con 24% de transparencia */
+  background: rgba(0, 82, 77, 0.24);
+  border-radius: 28px;
+  padding: 45px 50px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+
+  animation: scrollRise linear both;
+  animation-timeline: view();
+  animation-range: entry 10% contain 35%;
+}
+
+.history-box:hover{
+    border-color: #2CC295;
+    filter: drop-shadow(0 0 12px rgba(44, 194, 149, 0.171)); 
+}
+
+.history-box h2 {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 15px 0;
+}
+
+/* Línea divisoria de historia a lo ancho */
+.history-divider {
+  width: 100%;
+  height: 5px;
+  background-color: #2CC295; /* Color de línea solicitado */
+  margin-bottom: 25px;
+}
+
+.history-text {
+  color: #cccccc;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+
+/* --- RESPONSIVE DESIGN (Celulares y Tablets) --- */
+@media (max-width: 900px) {
+  .about-cards-grid {
+    grid-template-columns: 1fr; /* Pasa a una sola columna en pantallas chicas */
+    gap: 20px;
+  }
+  
+  .history-box {
+    padding: 35px 25px;
+  }
+}
+
+@keyframes scrollRise {
+  from {
+    transform: translateY(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

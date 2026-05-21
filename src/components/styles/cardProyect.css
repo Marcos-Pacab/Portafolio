@@ -1,0 +1,171 @@
+.modal-overlay-blur {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(6, 11, 19, 0.6);
+  /* 1. Eliminamos el blur de aquí para que el fondo no esté borroso */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.card-proyecto-modal {
+  /* 2. Cambiamos el fondo sólido por RGBA (80% de opacidad) */
+  background: rgba(2, 30, 27, 0.8); 
+  /* 3. Agregamos el efecto de desenfoque detrás de la carta */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); /* Soporte para Safari */
+  
+  border: 1px solid rgba(44, 194, 149, 0.2);
+  width: 90%;
+  max-width: 750px;
+  border-radius: 28px;
+  padding: 45px 50px;
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  animation: popIn 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.1) both;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 25px; right: 30px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 2.2rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-close-btn:hover {
+  color: #2CC295;
+}
+
+/* Cabecera del modal */
+.modal-top-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 2px solid #002B28;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.check-badge {
+  background: #2CC295;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.check-icon {
+  color: #021e1b;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.modal-top-header h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+/* Sistema de Línea de Tiempo Lateral */
+.modal-timeline-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-left: 35px;
+}
+
+/* Barra vertical conector */
+.timeline-connector-bar {
+  position: absolute;
+  left: 7px; top: 10px;
+  width: 4px; height: calc(100% - 45px);
+  background: #104941;
+}
+
+.timeline-item-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-item-row.alignment-top {
+  align-items: flex-start;
+}
+
+/* Nodos verdes circulares */
+.timeline-node {
+  position: absolute;
+  left: -33px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #2CC295;
+  box-shadow: 0 0 10px rgba(44, 194, 149, 0.6);
+}
+
+.adjustment-node {
+  top: 5px;
+}
+
+/* Bloques de Información de Datos */
+.info-block {
+  display: flex;
+  gap: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.timeline-item-row.alignment-top .info-block {
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label-title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  min-width: 110px;
+}
+
+.label-value {
+  color: #cccccc;
+  font-size: 1.05rem;
+}
+
+.label-value-tech {
+  color: #2CC295; 
+  font-size: 1.05rem;
+}
+
+.description-paragraph {
+  color: #b0c4de;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin: 0;
+  text-align: left;
+}
+
+/* Animación de Entrada */
+@keyframes popIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 700px) {
+  .info-block {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .card-proyecto-modal {
+    padding: 30px 20px;
+  }
+}
