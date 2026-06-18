@@ -62,3 +62,91 @@
   border-radius: 2px;   /* Bordes redondeados para la línea */
   
 }
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+  z-index: 1001; /* Asegura que la hamburguesa esté por encima del menú desplegable */
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* ========================================================
+   DISEÑO RESPONSIVO (Móviles y Tablets)
+   ======================================================== */
+@media (max-width: 768px) {
+  /* Ajustar el navbar contenedor para móviles */
+  .navbar {
+    width: 90%; /* Toma más espacio en pantallas pequeñas */
+    padding: 15px 25px; /* Reducimos un poco el padding */
+    justify-content: flex-end; /* Alinea la hamburguesa a la derecha */
+  }
+
+  /* Mostrar la hamburguesa */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Animación de la hamburguesa convirtiéndose en una 'X' */
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  /* Rediseñar la lista para que actúe como un menú desplegable */
+  .navbar-list {
+    position: absolute;
+    top: 110%; /* Lo posiciona justo debajo del contenedor navbar */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(10, 17, 26, 0.95); /* Un fondo más sólido para que no se mezcle con el texto de abajo */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 0;
+    gap: 0;
+    
+    /* Estado oculto por defecto */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s ease-in-out;
+  }
+
+  /* Estado abierto del menú desplegable */
+  .navbar-list.open {
+    max-height: 300px; /* Suficiente para mostrar los enlaces */
+    padding: 15px 0;
+    opacity: 1;
+  }
+
+  /* Ajustar los items dentro del menú desplegado */
+  .navbar-item {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 16px; /* Texto un poco más grande en móviles para facilitar el toque */
+  }
+
+  /* Ajuste de la línea verde en la versión móvil (opcional, centrado) */
+  .navbar-item.active::after {
+    width: 50%; /* Acorta la línea para que no toque los bordes del menú */
+    left: 25%;  /* Centra la línea */
+  }
+}

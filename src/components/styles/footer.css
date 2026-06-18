@@ -1,0 +1,81 @@
+.site-footer {
+  background-color: #0b0f11; /* Color oscuro similar a la imagen */
+  color: #ffffff;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.footer-logo-container {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-logo {
+  width: 80px; /* Ajusta este valor según el tamaño real de tu logo */
+  height: auto;
+  object-fit: contain;
+}
+
+.footer-divider {
+  width: 80%;
+  max-width: 1000px;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria sutil */
+  margin: 0 auto 35px auto;
+}
+
+.footer-contact-wrapper {
+  text-align: center;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.footer-contact-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 35px 0;
+  letter-spacing: 0.5px;
+}
+
+.footer-contact-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center; /* Centra verticalmente el ícono y el texto */
+  justify-content: center; /* Mantiene todo centrado horizontalmente */
+  gap: 12px; /* Añade un espacio entre el ícono y el texto */
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #e0e0e0;
+}
+
+.contact-item img {
+  width: 24px; /* Ajusta este tamaño según lo necesites */
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Diseño responsivo para pantallas pequeñas (móviles y tablets pequeñas) */
+@media (max-width: 768px) {
+  .footer-contact-info {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+  }
+  
+  .footer-divider {
+    width: 90%;
+  }
+}

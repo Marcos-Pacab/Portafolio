@@ -1,121 +1,95 @@
-.grid-seccion-container {
-  width: 100%;
-  padding: 60px 10%;
-  box-sizing: border-box;
-}
-
-/* Rejilla de 3 columnas principales para calzar las formas asimétricas */
-.proyectos-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 150px; /* Alto base de las filas */
-  gap: 20px;
-  width: 100%;
-}
-
-/* Configuración de formas según tu interfaz */
-.card-tall-2 { grid-column: span 1; grid-row: span 3; }       /* ResQGuard */
-.card-square { grid-column: span 1; grid-row: span 1; }       /* MOE, Golden, Finz */
-.card-wide-2 { grid-column: span 2; grid-row: span 1; }       /* Tiresoft Movil */
-.card-medium-tall { grid-column: span 1; grid-row: span 2; }  /* Tiresoft */
-.card-wide-bottom { grid-column: span 1.5; grid-row: span 2; } /* Fila inferior balanceada */
-
-/* Si tus dos últimas cartas inferiores deben ocupar mitades perfectas */
-.card-wide-bottom {
-  grid-column: span 1;
-  grid-row: span 1.5;
-}
-
-/* Tarjeta Base con Animación de Scroll */
-.proyecto-card {
+.proyectos-section {
   position: relative;
-  border-radius: 40px; /* Sincronizado con tu diseño */
-  border: 1px solid #48A89A;
-  cursor: pointer;
-  background: rgba(0, 82, 77, 0.24); /* Tu transparencia del 5.5% fija */
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  
-  /* Borde inicial: transparente o un gris muy sutil para que no sea invisible */
-  border: 2px solid rgba(255, 255, 255, 0.05); 
-  
-  /* Animación nativa de subida por Scroll */
-  animation: scrollRise linear both;
-  animation-timeline: view();
-  animation-range: entry 10% contain 35%;
-
-  transition: transform 0.3s ease, border-color 0.3s ease, filter 0.3s ease;
-  transform: translateY(0); 
-  border: 1px solid transparent;
-}
-
-/* Al hacer Hover, SOLO cambia el color del borde y se añade el resplandor neón */
-.proyecto-card:hover {
-  border-color: #2CC295; /* El verde neón se activa solo en la línea del borde */
-  
-  /* drop-shadow aplica el brillo neón exterior siguiendo la forma curva sin alterar el fondo interno */
-  filter: drop-shadow(0 0 12px rgba(44, 194, 149, 0.5)); 
-  
-  /* Opcional: Un micro movimiento hacia arriba para dar feedback táctil */
-  transform: translateY(-8px); 
-}
-
-.proyecto-card:hover::before {
-  opacity: 1;
-  box-shadow: 0 0 25px rgba(44, 194, 149, 0.6);
-}
-
-/* Contenedor del Contenido: Blanco con 10% de Transparencia */
-.card-content {
+  background-color: #0D181D;
+  min-height: 100vh;
   width: 100%;
-  height: 100%;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-  text-align: center;
-  padding: 30px 20px; /* Un poco más de padding vertical para centrar el icono y texto */
+  overflow: hidden;
+  padding: 60px 20px;
+  box-sizing: border-box;
 }
 
-.folder-icon-wrapper img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
+
+/* Contenedor del Carrusel */
+.carousel-container {
+  position: relative;
+  overflow: visible;
+  width: 100%;
+  max-width: 1000px;
+  z-index: 2;
 }
 
-.card-content h3 {
-  font-family: 'Poppins', sans-serif;
-  color: #ffffff;
-  font-size: 1.15rem;
-  font-weight: 500;
-  margin: 0;
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  width: 100%;
 }
 
-/* Keyframe para la subida al scrollear */
-@keyframes scrollRise {
-  from {
-    transform: translateY(60px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+.carousel-slide {
+  position: relative;
+  z-index: 2;
+  min-width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
 
-/* Adaptación responsiva para móviles */
-@media (max-width: 900px) {
-  .proyectos-grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-  }
-  .card-tall-2, .card-square, .card-wide-2, .card-medium-tall, .card-wide-bottom {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  .card-content {
-    padding: 40px 20px;
-  }
+/* Controles de Navegación del Slider */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 35px;
+  z-index: 2;
+}
+
+.nav-btn {
+  background-color: #2CC295;
+  color: #0D181D;
+  border: none;
+  width: 48px;
+  height: 32px;
+  border-radius: 16px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.nav-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Indicadores de Puntos */
+.dots-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #042422;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.dot.active {
+  background-color: #2CC295;
+  transform: scale(1.15);
 }

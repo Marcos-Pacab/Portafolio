@@ -2,10 +2,10 @@ import "../styles/navBar.css";
 import { useState, useEffect } from "react";
 
 function Navbar() {
-  // Estado para saber qué sección está activa en pantalla
   const [activeTab, setActiveTab] = useState("home");
+  // 1. Nuevo estado para controlar si el menú móvil está abierto
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Mapeamos el nombre visual con el ID real de HTML
   const menuItems = [
     { name: "Inicio", id: "home" },
     { name: "Proyectos", id: "proyectos" },
@@ -13,20 +13,20 @@ function Navbar() {
     { name: "Sobre Mi", id: "sobre-mi" },
   ];
 
-  // Función para manejar el clic y hacer scroll suave integrado
   const handleScroll = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
       setActiveTab(id);
     }
+    // 2. Cerramos el menú en móvil automáticamente tras hacer clic en un enlace
+    setIsMenuOpen(false);
   };
 
-  // Lógica para cambiar la línea verde automáticamente al hacer scroll
   useEffect(() => {
     const observerOptions = {
-      root: null, // Usa la pantalla del navegador
-      rootMargin: "-30% 0px -60% 0px", // Detecta la sección cuando está en la zona central
+      root: null,
+      rootMargin: "-30% 0px -60% 0px",
       threshold: 0,
     };
 
@@ -43,23 +43,31 @@ function Navbar() {
       observerOptions,
     );
 
-    // Observar cada sección configurada en nuestro menú
     menuItems.forEach((item) => {
       const element = document.getElementById(item.id);
       if (element) observer.observe(element);
     });
 
-    // Limpieza al desmontar el componente
     return () => observer.disconnect();
   }, []);
 
   return (
     <nav className="navbar">
-      <ul className="navbar-list">
+      {/* 3. Botón de la hamburguesa (solo visible en móvil) */}
+      <div
+        className={`hamburger ${isMenuOpen ? "open" : ""}`}
+        onClick={() => setIsMenuOpen(!isMenuOpen)}
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      {/* 4. Lista de navegación con clase condicional para móvil */}
+      <ul className={`navbar-list ${isMenuOpen ? "open" : ""}`}>
         {menuItems.map((item) => (
           <li
             key={item.id}
-            // Comparamos el ID activo para pintar la línea verde
             className={`navbar-item ${activeTab === item.id ? "active" : ""}`}
             onClick={() => handleScroll(item.id)}
           >

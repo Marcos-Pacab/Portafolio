@@ -2,9 +2,9 @@ import { CardProyecto } from "../common/cardProyect";
 import { useState } from "react";
 import "../styles/proyectoGrid.css";
 
-function ProyectosGrid() {
-  const [proyectoSeleccionado, setProyectoSeleccionado] = useState(null);
-
+function Proyectos() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isChanging, setIsChanging] = useState(false);
   // Datos estructurados según tus capturas de diseño
   const proyectos = [
     {
@@ -100,37 +100,75 @@ function ProyectosGrid() {
     },
   ];
 
+  const handleNext = () => {
+    if (currentIndex < proyectos.length - 1) {
+      triggerTransition(currentIndex + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      triggerTransition(currentIndex - 1);
+    }
+  };
+
+  const triggerTransition = (nextIndex) => {
+    setIsChanging(true); // Comienza el apagado suave desde adentro
+    setTimeout(() => {
+      setCurrentIndex(nextIndex);
+      setIsChanging(false); // Enciende desde afuera al centrar la nueva carta
+    }, 400); // Tiempo coordinado con la transición CSS
+  };
+
   return (
-    <div className="grid-seccion-container">
-      <div className="proyectos-grid">
-        {proyectos.map((proy) => (
-          <div
-            key={proy.id}
-            className={`proyecto-card ${proy.claseGrid}`}
-            onClick={() => setProyectoSeleccionado(proy)}
-          >
-            <div className="card-content">
-              <div className="folder-icon-wrapper">
-                <img
-                  src="/src/assets/icons/icono-folder.png"
-                  alt="Folder Icon"
-                />
-              </div>
-              <h3>{proy.nombre}</h3>
+    <div className="proyectos-section">
+      {/* Contenedor del Carrusel */}
+      <div className="carousel-container">
+        <div
+          className={`diamond-glow ${isChanging ? "fade-out" : "fade-in"}`}
+        ></div>
+        <div
+          className="carousel-track"
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {proyectos.map((proyecto) => (
+            <div className="carousel-slide" key={proyecto.id}>
+              <CardProyecto proyecto={proyecto} />
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
 
-      {/* Renderizado de tu cardProyect (Modal) */}
-      {proyectoSeleccionado && (
-        <CardProyecto
-          proyecto={proyectoSeleccionado}
-          onClose={() => setProyectoSeleccionado(null)}
-        />
-      )}
+      {/* Controles de Navegación Inferiores */}
+      <div className="carousel-controls">
+        <button
+          className="nav-btn"
+          onClick={handlePrev}
+          disabled={currentIndex === 0}
+        >
+          ←
+        </button>
+
+        <div className="dots-container">
+          {proyectos.map((_, index) => (
+            <span
+              key={index}
+              className={`dot ${index === currentIndex ? "active" : ""}`}
+              onClick={() => index !== currentIndex && triggerTransition(index)}
+            ></span>
+          ))}
+        </div>
+
+        <button
+          className="nav-btn"
+          onClick={handleNext}
+          disabled={currentIndex === proyectos.length - 1}
+        >
+          →
+        </button>
+      </div>
     </div>
   );
 }
 
-export default ProyectosGrid;
+export default Proyectos;

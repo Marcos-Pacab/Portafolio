@@ -1,0 +1,186 @@
+.skills-section {
+  min-height: 100vh;
+  width: 100%;
+  background:
+    radial-gradient(
+      ellipse 700px 480px at 50% 40%,
+      rgba(44, 194, 149, 0.35) 0%,
+      rgba(44, 194, 149, 0.18) 35%,
+      rgba(13, 24, 29, 0) 75%
+    ),
+    #0d181d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 16px;
+  overflow: hidden;
+}
+
+.skills-map {
+  position: relative;
+  width: min(1200px, 100%);
+  /* Alineado al 100% con el viewBox 1000 700 del SVG */
+  aspect-ratio: 1000 / 700; 
+}
+
+.skills-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 95%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.skills-lines line {
+  stroke: #2cc295;
+  stroke-width: 6;
+  stroke-linecap: round;
+  opacity: 0.95;
+}
+
+.skills-lines circle {
+  fill: #2cc295;
+}
+
+.skills-core {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  z-index: 3;
+}
+
+.skills-core-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 4px solid rgba(44, 194, 149, 0.25);
+  background: radial-gradient(
+    circle at center,
+    rgba(44, 194, 149, 0.35) 0%,
+    rgba(44, 194, 149, 0.12) 50%,
+    rgba(13, 24, 29, 0) 75%
+  );
+  filter: blur(0.2px);
+}
+
+.skills-core-inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 105px;
+  height: 105px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: #071a1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px rgba(44, 194, 149, 0.2);
+}
+
+.skills-core-inner img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
+}
+
+.skill-group {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  text-align: center;
+}
+
+.skill-title {
+  display: inline-block;
+  background: #2cc295;
+  color: #072127;
+  font-weight: 800;
+  font-size: 1.15rem;
+  padding: 8px 26px;
+  border-radius: 6px;
+  min-width: 210px;
+  box-shadow: 0 0 18px rgba(44, 194, 149, 0.12);
+}
+
+.skill-items {
+  margin-top: 18px;
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 280px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 66px;
+}
+
+.skill-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+}
+
+.skill-icon img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+.skill-item span {
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .skills-map {
+    aspect-ratio: auto;
+    min-height: 900px;
+    /* Agrega estas propiedades para centrar los grupos en la pantalla */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skills-core {
+    top: 22%;
+  }
+
+  .skill-group {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    transform: none;
+    margin: 28px 0;
+    /* Agrega esto para centrar el título y los iconos dentro del grupo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Agrega esta clase dentro del media query para asegurar el centrado de la cuadrícula */
+  .skill-items {
+    margin: 18px auto 0 auto;
+    justify-content: center;
+  }
+
+  .skills-lines {
+    display: none;
+  }
+}
