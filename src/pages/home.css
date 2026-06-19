@@ -54,7 +54,7 @@
 .img-retrato {
   flex: 1;
   display: flex;
-  justify-content: flex-end; /* Alinea la foto hacia el centro */
+  justify-content: flex-end;
 }
 
 .img-retrato img {
