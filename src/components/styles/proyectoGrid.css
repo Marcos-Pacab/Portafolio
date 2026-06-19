@@ -1,8 +1,5 @@
 .proyectos-section {
   position: relative;
-  background-color: #0D181D;
-  min-height: 100vh;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
