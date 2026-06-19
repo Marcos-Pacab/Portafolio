@@ -8,7 +8,6 @@ function About() {
         {/* Tarjeta 1: Educación */}
         <div className="about-card">
           <div className="about-icon-wrapper">
-            {/* Reemplaza por tu icono preferido */}
             <i className="fa-solid fa-book-open">
               <img src="/src/assets/icons/icono-sombrero-p.png"></img>
             </i>

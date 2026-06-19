@@ -3,14 +3,14 @@
 body{
   background: #0D181D;
   margin: 0;
-  font-family: 'Poppins', sans-serif; /* Aquí aplicas la fuente de lectura */
+  font-family: 'Poppins', sans-serif;
   color: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
 
 html {
   scroll-behavior: smooth; /* Hace que el movimiento al navegar sea suave */
-  scroll-padding-top: 100px; /* IMPORTANTE: Le dice al navegador que deje libre el espacio que ocupa tu Navbar fijo al hacer scroll */
+  scroll-padding-top: 100px; 
 }
 
 h1{

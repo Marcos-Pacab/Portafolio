@@ -162,7 +162,7 @@
   60% { transform: translateY(-4px) rotate(45deg); }
 }
 
-/* --- RESPONSIVE: Para pantallas de celulares o tablets --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 900px) {
   .hero-content {
     flex-direction: column; /* Se apila uno abajo del otro en pantallas chicas */

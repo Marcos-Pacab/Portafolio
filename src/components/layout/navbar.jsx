@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 function Navbar() {
   const [activeTab, setActiveTab] = useState("home");
-  // 1. Nuevo estado para controlar si el menú móvil está abierto
+  // Estado para controlar si el menú móvil está abierto
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
@@ -19,7 +19,7 @@ function Navbar() {
       element.scrollIntoView({ behavior: "smooth" });
       setActiveTab(id);
     }
-    // 2. Cerramos el menú en móvil automáticamente tras hacer clic en un enlace
+    // Cerramos el menú en móvil automáticamente tras hacer clic en un enlace
     setIsMenuOpen(false);
   };
 
@@ -53,7 +53,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      {/* 3. Botón de la hamburguesa (solo visible en móvil) */}
+      {/* Botón de la hamburguesa */}
       <div
         className={`hamburger ${isMenuOpen ? "open" : ""}`}
         onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -63,7 +63,7 @@ function Navbar() {
         <span></span>
       </div>
 
-      {/* 4. Lista de navegación con clase condicional para móvil */}
+      {/* Lista de navegación con clase condicional para móvil */}
       <ul className={`navbar-list ${isMenuOpen ? "open" : ""}`}>
         {menuItems.map((item) => (
           <li
