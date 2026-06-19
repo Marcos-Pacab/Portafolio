@@ -1,22 +1,20 @@
-# Portafolio
+# 🌐 Mi Portafolio Profesional
 
-Portafolio personal
+Este proyecto fue diseñado y desarrollado con el objetivo de consolidar mi identidad digital, dar a conocer mis habilidades técnicas, proyectos destacados y facilitar el contacto con reclutadores y colaboradores del sector tecnológico.
 
-# React + Vite
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Tecnologías Utilizadas
 
-Currently, two official plugins are available:
+### **React + Vite**
+El frontend está construido utilizando **React** junto con **Vite** como empaquetador por las siguientes razones:
+* **Arquitectura de Componentes:** Permite el desarrollo de interfaces modulares, limpias y altamente reutilizables, optimizando el flujo de trabajo.
+* **Rendimiento Ultrarrápido:** Vite ofrece un entorno de desarrollo veloz gracias a la disponibilidad nativa de módulos ESM, mejorando drásticamente los tiempos de recarga.
+* **Enfoque Práctico:** El desarrollo de esta SPA (Single Page Application) sirvió como práctica para dominar patrones de diseño modernos, hooks avanzados y diseño responsivo adaptado a dispositivos móviles.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📦 Despliegue y Alojamiento
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
-
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+El proyecto se encuentra desplegado y accesible al público a través de **Vercel**. 
+* Se seleccionó esta plataforma por su excelente integración continua (CI/CD) nativa con GitHub, su optimización para aplicaciones de React y el aprovechamiento de su plan gratuito, ideal para portafolios web.
