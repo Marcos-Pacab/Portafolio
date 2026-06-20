@@ -1,6 +1,6 @@
 import "../styles/skillMap.css";
 
-const brainIcon = "/src/assets/images/icono-cerebro.png";
+const brainIcon = "/public/images/icono-cerebro.png";
 const backend = [
   {
     name: "C#",
@@ -66,7 +66,7 @@ const otros = [
     name: "Odoo",
     url: "https://odoocdn.com/openerp_website/static/src/img/assets/svg/odoo_logo.svg",
   },
-  { name: "n8n", url: "/src/assets/icons/n8n-color.svg" },
+  { name: "n8n", url: "/public/icons/n8n-color.svg" },
   {
     name: "Figma",
     url: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",

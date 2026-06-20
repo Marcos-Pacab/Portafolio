@@ -1,18 +1,15 @@
 import "../styles/footer.css";
 
-const iconPerson = "/src/assets/icons/icon-avatar.png";
-const iconGmail = "/src/assets/icons/icon-gmail.png";
-const iconPhone = "/src/assets/icons/icon-whatsapp.png";
+const logo = "/public/images/mi-logo.png";
+const iconPerson = "/public/icons/icon-avatar.png";
+const iconGmail = "/public/icons/icon-gmail.png";
+const iconPhone = "/public/icons/icon-whatsapp.png";
 
 export function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-logo-container">
-        <img
-          src="/src/assets/images/mi-logo.png"
-          alt="Logo"
-          className="footer-logo"
-        />
+        <img src={logo} alt="Logo" className="footer-logo" />
       </div>
 
       <hr className="footer-divider" />

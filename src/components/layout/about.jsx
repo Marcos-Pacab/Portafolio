@@ -9,7 +9,7 @@ function About() {
         <div className="about-card">
           <div className="about-icon-wrapper">
             <i className="fa-solid fa-book-open">
-              <img src="/src/assets/icons/icono-sombrero-p.png"></img>
+              <img src="/public/icons/icono-sombrero-p.png"></img>
             </i>
           </div>
           <h3>EDUCACIÓN</h3>
@@ -24,7 +24,7 @@ function About() {
         <div className="about-card">
           <div className="about-icon-wrapper">
             <i className="fa-solid fa-cubes">
-              <img src="/src/assets/icons/icono-aptitudes.png"></img>
+              <img src="/public/icons/icono-aptitudes.png"></img>
             </i>
           </div>
           <h3>APTITUDES</h3>
@@ -41,7 +41,7 @@ function About() {
         <div className="about-card">
           <div className="about-icon-wrapper">
             <i className="fa-solid fa-globe">
-              <img src="/src/assets/icons/icono-idioma.png"></img>
+              <img src="/public/icons/icono-idioma.png"></img>
             </i>
           </div>
           <h3>IDIOMAS</h3>
