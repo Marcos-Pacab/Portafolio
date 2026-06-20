@@ -1,9 +1,9 @@
 import "../styles/footer.css";
 
-const logo = "/public/images/mi-logo.png";
-const iconPerson = "/public/icons/icon-avatar.png";
-const iconGmail = "/public/icons/icon-gmail.png";
-const iconPhone = "/public/icons/icon-whatsapp.png";
+const logo = "/images/mi-logo.png";
+const iconPerson = "/icons/icon-avatar.png";
+const iconGmail = "/icons/icon-gmail.png";
+const iconPhone = "/icons/icon-whatsapp.png";
 
 export function Footer() {
   return (

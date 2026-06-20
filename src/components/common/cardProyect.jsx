@@ -12,7 +12,7 @@ export function CardProyecto({ proyecto }) {
         {/* Cabecera: Icono de Carpeta de diseño + Título */}
         <div className="card-header">
           <div className="folder-icon">
-            <img src="/public/icons/icono-folder.png"></img>
+            <img src="/icons/icono-folder.png"></img>
           </div>
           <h2>{proyecto.nombre.toUpperCase()}</h2>
         </div>

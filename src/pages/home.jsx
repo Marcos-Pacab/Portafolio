@@ -16,7 +16,7 @@ function Home() {
         <div className="hero-content">
           {/* Imagen de retrato*/}
           <div className="img-retrato">
-            <img src="/public/images/perfil-gris.png" alt="Marcos Pacab" />
+            <img src="/images/perfil-gris.png" alt="Marcos Pacab" />
           </div>
 
           <div className="hero-text-block">
@@ -48,10 +48,7 @@ function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src="/public/icons/icons8-linkedin-24.png"
-                  alt="LinkedIn"
-                />
+                <img src="/icons/icons8-linkedin-24.png" alt="LinkedIn" />
               </a>
 
               {/* GITHUB */}
@@ -61,7 +58,7 @@ function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src="/public/icons/icons8-github-24.png" alt="GitHub" />
+                <img src="/icons/icons8-github-24.png" alt="GitHub" />
               </a>
             </div>
           </div>
