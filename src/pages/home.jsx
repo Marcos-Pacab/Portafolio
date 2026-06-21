@@ -4,7 +4,6 @@ import SkillMap from "../components/layout/skillMap";
 import Titulos from "../components/common/titles";
 import About from "../components/layout/about";
 import Footer from "../components/layout/footer";
-import cv from "/src/assets/cv_marcos_pacab.pdf";
 import "./home.css";
 
 function Home() {
@@ -34,7 +33,11 @@ function Home() {
 
             {/* Botón de CV y redes sociales*/}
             <div className="redes">
-              <a href={cv} download="CV-Marcos_Pacab" className="btn-cv">
+              <a
+                href="/cv_marcos_pacab.pdf"
+                download="CV-Marcos-Pacab"
+                className="btn-cv"
+              >
                 Descargar CV
               </a>
 
