@@ -11,13 +11,14 @@
     ),
     #0D181D;
   
-  min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   color: #FFFFFF;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 /* Contenedor flexible que divide Foto e Información */
@@ -26,8 +27,8 @@
   align-items: center;
   justify-content: center;
   gap: 60px;
-  flex-grow: 1;
-  padding: 0 10%;
+  flex: 1;
+  padding: 0 clamp(20px,5vw,10%);
 }
 
 /* Títulos */
@@ -58,15 +59,16 @@
 }
 
 .img-retrato img {
-  max-width: 480px; /* Controla el tamaño de tu retrato */
-  width: 100%;
-  height: auto;
-  object-fit: cover;
+  width:100%;
+ max-width:450px;
+ height:auto;
+ object-fit:cover;
+ border-radius:20px;
 
-  mask-image: linear-gradient(
-    black 50%,
-    transparent
-  );
+ mask-image:linear-gradient(
+   black 50%,
+   transparent
+ );
 }
 
 /* Lado Derecho: Contenedor de Texto y Redes */
@@ -150,11 +152,6 @@
   animation: bounce 2s infinite;
 }
 
-.img-retrato img {
-  max-width: 450px;
-  border-radius: 20px; /* Bordes suaves estilo tarjeta */
-}
-
 /* Animación sutil de rebote para la flecha inferior */
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
@@ -164,29 +161,48 @@
 
 /* --- RESPONSIVE --- */
 @media (max-width: 900px) {
-  .hero-content {
-    flex-direction: column; /* Se apila uno abajo del otro en pantallas chicas */
-    text-align: center;
-    gap: 40px;
-    padding: 40px 5%;
-  }
+  .home-container{
+ min-height:100dvh;
+ overflow-x:hidden;
+}
 
-  .img-retrato {
-    justify-content: center;
-  }
+.hero-content{
+ flex-direction:column;
+ text-align:center;
+ gap:30px;
+ padding:40px 20px;
+}
 
-  .presentacion h1{
-    font-size: 3rem;
-  }
-  .titulo-blanco{
-    font-size: 3rem;
-  }
+.img-retrato{
+ justify-content:center;
+}
 
-  .presentacion p {
-    margin: 0 auto;
-  }
+.img-retrato img{
+ max-width:300px;
+}
 
-  .redes {
-    justify-content: center;
-  }
+.presentacion h1,
+.titulo-blanco{
+ font-size:2.2rem;
+ letter-spacing:1px;
+}
+
+.titulo-verde{
+ font-size:2rem;
+}
+
+.presentacion p{
+ font-size:1rem;
+ margin:auto;
+}
+
+.redes{
+ justify-content:center;
+ flex-wrap:wrap;
+}
+
+.btn-cv{
+ width:200px;
+ text-align:center;
+}
 }

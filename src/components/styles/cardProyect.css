@@ -126,6 +126,12 @@
   .card-proyecto-content {
     padding: 25px 20px;
   }
+  .card-proyecto-wrapper{
+    height: 620px;
+  }
+  .info-description{
+    max-height: 250px;
+  }
   .card-header h2 {
     font-size: 1.5rem;
   }
